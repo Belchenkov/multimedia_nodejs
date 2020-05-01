@@ -1,0 +1,42 @@
+{
+  "name": "multimedia_nodejs",
+  "description": "Build a multimedia Application with Node.js",
+  "license": "MIT",
+  "author": {
+    "name": "Aleksey Belchenkov"
+  },
+  "keywords": [
+    "MVC",
+    "Express Application",
+    "Expressjs",
+    "Expressjs images upload",
+    "Expressjs video upload"
+  ],
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "connect-mongo": "*",
+    "cookie-parser": "*",
+    "debug": "*",
+    "ejs": "*",
+    "express": "*",
+    "express-session": "*",
+    "gravatar": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "multer": "*",
+    "node-sass-middleware": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "serve-favicon": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  }
+}
