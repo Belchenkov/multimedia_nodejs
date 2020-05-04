@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const imagesSchema = mongoose.Schema({
+const videosSchema = mongoose.Schema({
     created: {
         type: Date,
         default: Date.now
@@ -13,7 +13,7 @@ const imagesSchema = mongoose.Schema({
         trim: true,
         required: 'Title cannot be blank'
     },
-    imageName: {
+    videoName: {
         type: String
     },
     user: {
@@ -22,4 +22,4 @@ const imagesSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Images', imagesSchema);
+module.exports = mongoose.model('Videos', videosSchema);
