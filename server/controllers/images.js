@@ -101,7 +101,7 @@ exports.uploadImage = (req, res) => {
 
 // Images authorization middleware
 exports.hasAuthorization = (req, res, next) => {
-    if (req.isAuthenticated())
-        return next();
+    if (req.isAuthenticated()) return next();
+
     res.redirect('/login');
 };
