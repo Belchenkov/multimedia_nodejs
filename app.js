@@ -16,7 +16,7 @@ const multer = require('multer');
 const upload = multer({
     dest:'./public/uploads/',
     limits: {
-        fileSize: 1000000,
+        fileSize: 10000000,
         files:1
     }
 });

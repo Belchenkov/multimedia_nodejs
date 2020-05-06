@@ -5,18 +5,18 @@
     <% include ../partials/stylesheet %>
 </head>
 <body>
-    <% include ../partials/header %>
+<% include ../partials/header %>
 
-    <div class="container">
-      <div class="page-header m-t-1">
+<div class="container">
+    <div class="page-header m-t-1">
         <h1>Sorry: <%= message %></h1>
-		<h2><%= error.status %></h2>
-		<pre><%= error.stack %></pre>
-      </div>
-
+        <h2><%= error.status %></h2>
+        <pre><%= error.stack %></pre>
     </div>
 
-    <% include ../partials/footer %>
-    <% include ../partials/javascript %>
+</div>
+
+<% include ../partials/footer %>
+<% include ../partials/javascript %>
 </body>
 </html>
