@@ -6,17 +6,17 @@ const userSchema = mongoose.Schema({
     local: {
         name: String,
         email: String,
-        password: String,
+        password: String
     }
 });
 
 // Encrypt Password
-userSchema.methods.generateHash = password => {
+userSchema.methods.generateHash = function (password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-// Verify if password is valid
-userSchema.methods.validPassword = password => {
+userSchema.methods.validPassword = function (password) {
+    console.log(this.local, 'validPassword')
     return bcrypt.compareSync(password, this.local.password);
 };
 

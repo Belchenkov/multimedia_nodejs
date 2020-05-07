@@ -3,14 +3,14 @@ const LocalStrategy = require('passport-local').Strategy;
 // load up the user model
 const User = require('../models/users');
 
-module.exports = function(passport) {
+module.exports = (passport) => {
     // passport init setup
     // serialize the user for the session
-    passport.serializeUser(function(user, done) {
+    passport.serializeUser((user, done) => {
         done(null, user.id);
     });
     // deserialize the user
-    passport.deserializeUser(function(id, done) {
+    passport.deserializeUser((id, done) => {
         User.findById(id, function(err, user) {
             done(err, user);
         });
@@ -22,16 +22,15 @@ module.exports = function(passport) {
             passwordField : 'password',
             passReqToCallback : true
         },
-        function(req, email, password, done) {
+        (req, email, password, done) => {
             if (email)
                 // format to lower-case
                 email = email.toLowerCase();
             // process asynchronous
-            process.nextTick(function() {
-                User.findOne({ 'local.email' :  email }, function(err, user) {
+            process.nextTick(() => {
+                User.findOne({ 'local.email' :  email }, (err, user) => {
                     // if errors
-                    if (err)
-                        return done(err);
+                    if (err) return done(err);
                     // check errors and bring the messages
                     if (!user)
                         return done(null, false, req.flash('loginMessage', 'No user found.'));
@@ -50,15 +49,15 @@ module.exports = function(passport) {
             passwordField : 'password',
             passReqToCallback : true
         },
-        function(req, email, password, done) {
+        (req, email, password, done) => {
             if (email)
                 // format to lower-case
                 email = email.toLowerCase();
             // asynchronous
-            process.nextTick(function() {
+            process.nextTick(() => {
                 // if the user is not already logged in:
                 if (!req.user) {
-                    User.findOne({ 'local.email' :  email }, function(err, user) {
+                    User.findOne({ 'local.email' :  email }, (err, user) => {
                         // if errors
                         if (err)
                             return done(err);
@@ -73,7 +72,7 @@ module.exports = function(passport) {
                             newUser.local.email = email;
                             newUser.local.password = newUser.generateHash(password);
                             // save data
-                            newUser.save(function(err) {
+                            newUser.save((err) => {
                                 if (err)
                                     throw err;
                                 return done(null, newUser);
